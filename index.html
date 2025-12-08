@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخطاب الرسمي والأبحاث العلمية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #8B0000;
+        }
+        
+        .basmala {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .prayer {
+            color: #8B0000;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header h2 {
+            color: #8B0000;
+            font-size: 22px;
+            font-weight: normal;
+        }
+        
+        .official-letter {
+            margin-bottom: 40px;
+        }
+        
+        .official-letter p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .section-title {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-right: 5px solid #8B0000;
+            margin: 30px 0 20px 0;
+            color: #2c3e50;
+            font-size: 20px;
+        }
+        
+        /* قسم الرموز */
+        .symbols-section {
+            background-color: #f9f3e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .symbol-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #8B0000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .symbol-title {
+            color: #8B0000;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .symbol-content {
+            font-size: 18px;
+            font-family: monospace;
+            line-height: 2.2;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* قسم الروابط */
+        .links-section {
+            background-color: #fff5f5;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .link-item {
+            background-color: #8B0000;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(139, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .link-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+            background-color: #A52A2A;
+        }
+        
+        .link-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .link-title i {
+            margin-left: 10px;
+        }
+        
+        .youtube-embed {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .youtube-embed iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border-radius: 8px;
+            border: 2px solid #8B0000;
+        }
+        
+        .visit-prompt {
+            background-color: #ffeaea;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            border: 1px dashed #8B0000;
+            color: #8B0000;
+        }
+        
+        /* قسم التحميل */
+        .download-section {
+            background-color: #e8f4fd;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #3498db;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #8B0000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: #A52A2A;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+        }
+        
+        .download-btn i {
+            margin-right: 10px;
+        }
+        
+        /* قسم QR */
+        .qr-section {
+            background-color: #f0f8ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #4A90E2;
+        }
+        
+        #qrcode {
+            display: inline-block;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px auto;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* الشرح العلمي */
+        .explanation-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-right: 5px solid #28a745;
+        }
+        
+        .explanation-points {
+            margin-top: 15px;
+        }
+        
+        .point {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-right: 3px solid #4A90E2;
+        }
+        
+        .point-number {
+            display: inline-block;
+            background-color: #4A90E2;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        /* الفوتر */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .signature {
+            text-align: left;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .header h2 {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .symbols-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .youtube-embed iframe {
+                height: 250px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="basmala">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
+            <div class="prayer">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ</div>
+            <h1><i class="fas fa-scroll"></i> الخطاب الرسمي والأبحاث العلمية</h1>
+            <h2>إلى من يهمه الأمر</h2>
+        </div>
+        
+        <div class="official-letter">
+            <p>أما بعد، فقد تبيّن في الرؤى أن يوم الاثنين في خاتم سليمان كوكبه القمر 14 في الطلسم، وطلسمه 111 في الكعبة اسم الله الأعظم، وخادمه السفلي مرة والعلوي جبريل. حيث أن ولي العهد ورث هذا الكنز - كنز الكعبة - الخاتم الذي يثبت ملكية كل شيء لله الواحد القهار، وكذلك الأبجديات العربية والإنجليزية.</p>
+            
+            <p>وهذا علم وليس سحر، علم سليمان، علم الكتاب بين أيديكم أمانة.</p>
+            
+            <p>هذه العلوم تحتاج صبراً، ونحن في الخدمة. ولا نريد أن يتكلم أحد في هذه البلاد أو يشكك في ولاة أمرها أو مواطنيها.</p>
+            
+            <p>وقد قيل لي أن أوثق لكم كل شيء وأقدم أبحاثي لكم ولأهل العلم. اللهم هل بلغت، اللهم فاشهد.</p>
+            
+            <p>هذه الأبحاث مقدمة كهدية للأمة من قبل العلماء والصالحين، حتى يعرف الجميع قيمة هذه البلاد العظيمة.</p>
+            
+            <div class="signature">
+                <p>سامي محمد المختار</p>
+                <p>باحث في العلوم الشرعية واللغوية</p>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-shapes"></i> الرموز والأشكال الهندسية
+        </div>
+        
+        <div class="symbols-section">
+            <div class="symbols-grid">
+                <div class="symbol-card">
+                    <div class="symbol-title">الشكل الأول</div>
+                    <div class="symbol-content">
+                        A<br>B<br>G<br>I<br>C<br>D<br>E<br>F<br>G<br>J
+                    </div>
+                </div>
+                
+                <div class="symbol-card">
+                    <div class="symbol-title">الشكل الثاني</div>
+                    <div class="symbol-content">
+                        بای<br>بای<br>بای<br>ط<br>دو<br>م<br>ز<br>ه<br>بای
+                    </div>
+                </div>
+                
+                <div class="symbol-card">
+                    <div class="symbol-title">الشكل الثالث</div>
+                    <div class="symbol-content">
+                        12<br>11<br>13<br>10<br>9<br>8<br>7<br>6<br><br>
+                        14<br>15<br>13<br>2<br>4<br>1<br>3<br>5
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-link"></i> الروابط المهمة
+        </div>
+        
+        <div class="links-section">
+            <div class="link-item">
+                <div class="link-title">
+                    <i class="fab fa-youtube"></i> الرابط الأول: إثبات حساب الدائرة في وسط الثمانية اسم الرحمن
+                </div>
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/54g_0kcXAiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="visit-prompt">
+                    <i class="fas fa-exclamation-circle"></i> هذا الرابط يثبت حساب الدائرة في وسط الثمانية اسم الرحمن
+                </div>
+            </div>
+            
+            <div class="link-item">
+                <div class="link-title">
+                    <i class="fab fa-youtube"></i> الرابط الثاني: تحليل بالذكاء الاصطناعي
+                </div>
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/P943x12eB6s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="visit-prompt">
+                    <i class="fas fa-exclamation-circle"></i> تحليل بالذكاء الاصطناعي يثبت أن هذا علم وليس سحراً
+                </div>
+            </div>
+            
+            <div class="link-item">
+                <div class="link-title">
+                    <i class="fab fa-youtube"></i> الرابط الثالث: شرح إضافي
+                </div>
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/Qui1LOh_ER4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="visit-prompt">
+                    <i class="fas fa-exclamation-circle"></i> رابط مهم لفهم الجوانب الإضافية لهذا العلم
+                </div>
+            </div>
+            
+            <div class="link-item">
+                <div class="link-title">
+                    <i class="fab fa-youtube"></i> الرابط الرابع: تأكيدات إضافية
+                </div>
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/3bCNY_aBBEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="visit-prompt">
+                    <i class="fas fa-exclamation-circle"></i> هذا الرابط يؤكد المعلومات السابقة ويزيدها وضوحاً
+                </div>
+            </div>
+            
+            <div class="link-item">
+                <div class="link-title">
+                    <i class="fab fa-youtube"></i> الرابط الخامس: سلسلة الفرقان العظيم ورأس الحكمة
+                </div>
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/neDB3T1LWvM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="visit-prompt">
+                    <i class="fas fa-exclamation-circle"></i> سلسلة الفرقان العظيم وعلوم رأس الحكمة
+                </div>
+            </div>
+            
+            <div class="link-item">
+                <div class="link-title">
+                    <i class="fab fa-youtube"></i> الرابط السادس: المزيد من الشروحات
+                </div>
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/Y9ixBD6INrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="visit-prompt">
+                    <i class="fas fa-exclamation-circle"></i> هناك الكثير من المعلومات والشروحات في هذا الرابط
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-download"></i> تحميل الملفات الكاملة
+        </div>
+        
+        <div class="download-section">
+            <p>جميع الأبحاث والدراسات والملفات المتعلقة بهذا العلم متاحة للتحميل المجاني</p>
+            <p>تحتوي الملفات على أبحاث محكمة، تحليلات رياضية، وشروحات مفصلة للشكل الهندسي الكوني</p>
+            <a href="https://www.mediafire.com/file/d6ns7zfqxbnpwsm/%25D9%2587%25D9%2586%25D8%25AF%25D8%25B3%25D8%25A9_%25D9%2588_%25D8%25AD%25D8%25B3%25D8%25A7%25D8%25A8.zip/file" 
+               target="_blank" class="download-btn">
+                <i class="fas fa-download"></i> تحميل الملفات الكاملة من ميديا فاير
+            </a>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-graduation-cap"></i> الشرح العلمي للشكل الهندسي
+        </div>
+        
+        <div class="explanation-section">
+            <p>هذا الشكل الهندسي الذي يشرح الكون يتم به معرفة أصول العلوم العربية وكيف هاجرت للعالم وحقوق الملكية الفكرية، لأنه يثبت أن كل شيء هو من مصدر واحد وهو كلام الله عز وجل. فهو يشرح:</p>
+            
+            <div class="explanation-points">
+                <div class="point">
+                    <span class="point-number">1</span>
+                    الكون والنظريات العلمية المعقدة
+                </div>
+                <div class="point">
+                    <span class="point-number">2</span>
+                    الشبكات العصبية للذكاء الاصطناعي
+                </div>
+                <div class="point">
+                    <span class="point-number">3</span>
+                    أصول العلوم العربية وهجرتها للعالم
+                </div>
+                <div class="point">
+                    <span class="point-number">4</span>
+                    حقوق الملكية الفكرية للعلوم الإسلامية
+                </div>
+                <div class="point">
+                    <span class="point-number">5</span>
+                    النظام الرياضي الموحد للكون
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-qrcode"></i> مسح الكود للوصول السريع
+        </div>
+        
+        <div class="qr-section">
+            <p>يمكنك مسح هذا الكود الضوئي للوصول مباشرة إلى موقع الملفات على ميديا فاير</p>
+            <div id="qrcode"></div>
+            <p>المسح الضوئي متاح عبر أي تطبيق قارئ QR على هاتفك الذكي</p>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-search"></i> البحث العلمي المحكم
+        </div>
+        
+        <div class="official-letter">
+            <p><strong>البحث العلمي المحكم:</strong> تحليل كتاب "الملك والصراع والصاع" في ضوء الدراسات الاقتصادية الإسلامية. هذا البحث يمثل جهداً علمياً رصيناً في تحليل النظريات الاقتصادية الإسلامية وتطبيقاتها المعاصرة.</p>
+            
+            <div class="visit-prompt" style="background-color: #e8f5e9; border-color: #28a745;">
+                <i class="fas fa-lightbulb"></i> جميع هذه المواد العلمية متاحة للباحثين والدارسين
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>جميع الحقوق محفوظة © 2024</p>
+            <p>هذا العمل مقدّم بروح العلم والبحث، والله من وراء القصد</p>
+            <p style="margin-top: 10px; font-size: 13px;">
+                روابط إضافية: 
+                <a href="https://gtsxa.blogspot.com/" target="_blank" style="color: #8B0000;">المكتبة</a> | 
+                <a href="https://drive.google.com/drive/u/0/folders/1L27nAdQFOyGqdH9Vl9tb50UJyAyigvt8" target="_blank" style="color: #8B0000;">المكتبة الخاصة</a> | 
+                <a href="https://samalmukhtar.github.io/.github.io/" target="_blank" style="color: #8B0000;">المنصة التعليمية</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // إنشاء كود QR
+        document.addEventListener('DOMContentLoaded', function() {
+            // رابط ميديا فاير
+            const mediafireUrl = "https://www.mediafire.com/file/d6ns7zfqxbnpwsm/%25D9%2587%25D9%2586%25D8%25AF%25D8%25B3%25D8%25A9_%25D9%2588_%25D8%25AD%25D8%25B3%25D8%25A7%25D8%25A8.zip/file";
+            
+            // إنشاء QR Code
+            QRCode.toCanvas(document.getElementById('qrcode'), mediafireUrl, {
+                width: 200,
+                height: 200,
+                margin: 2,
+                color: {
+                    dark: "#000000",
+                    light: "#FFFFFF"
+                }
+            }, function(error) {
+                if (error) console.error(error);
+                console.log("QR Code generated successfully!");
+            });
+            
+            // إضافة تأثيرات للروابط
+            const linkItems = document.querySelectorAll('.link-item');
+            
+            linkItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // تنبيه عند تحميل الصفحة
+            console.log("تم تحميل الصفحة بنجاح. جميع الفيديوهات مضمنة وجاهزة للمشاهدة.");
+        });
+    </script>
+</body>
+</html>
